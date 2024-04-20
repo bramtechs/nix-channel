@@ -1,15 +1,15 @@
-with import <nixpkgs> {};
+let
+  sources = import <nixpkgs> {};
 
-{
-    hello = pkgs.writeShellScriptBin "hello" ''
-      echo "Hello from the Nix channel overlay!"
-    '';
+  hello = pkgs.writeShellScriptBin "hello" ''
+    echo "Hello from the Nix channel overlay!"
+  '';
 
-    pkgs = import sources.nixpkgs {
-      overlays = [
-        (self: super: {
-          inherit hello;
-        })
-      ];
-    };
-}
+  pkgs = import sources.nixpkgs {
+    overlays = [
+      (self: super: {
+        inherit hello;
+      })
+    ];
+  };
+in pkgs

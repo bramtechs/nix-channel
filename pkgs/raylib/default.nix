@@ -28,10 +28,10 @@ stdenv.mkDerivation (finalAttrs: {
   version = "5.0";
 
   src = fetchFromGitHub {
-    owner = "raysan5";
+    owner = "bramtechs";
     repo = "raylib";
-    rev = finalAttrs.version;
-    hash = "sha256-gEstNs3huQ1uikVXOW4uoYnIDr5l8O9jgZRTX1mkRww=";
+    rev = "aedc6abeb7ac17a388b522c087b8d78834af072c";
+    hash = "sha256-q8J/vs2GTSp7p+Tx0loxwuH5yeKkD/9rjKhUyYk4Lb4=";
   };
 
   nativeBuildInputs = [ cmake ];
@@ -47,7 +47,6 @@ stdenv.mkDerivation (finalAttrs: {
 
   # https://github.com/raysan5/raylib/wiki/CMake-Build-Options
   cmakeFlags = [
-    "-DUSE_EXTERNAL_GLFW=ON"
     "-DBUILD_EXAMPLES=OFF"
     "-DBUILD_GAMES=OFF"
     "-DCUSTOMIZE_BUILD=1"
@@ -61,18 +60,6 @@ stdenv.mkDerivation (finalAttrs: {
   ++ lib.optional sharedLib "-DBUILD_SHARED_LIBS=ON";
 
   passthru.tests = [ raylib-games ];
-
-  patches = [
-    # Patch version in CMakeLists.txt to 5.0.0
-    # The library author doesn't use cmake, so when updating this package please
-    # check that the resulting library extension matches the version
-    # and remove/update this patch (resulting library name should match
-    # libraylib.so.${finalAttrs.version}
-    (fetchpatch {
-      url = "https://github.com/raysan5/raylib/commit/032cc497ca5aaca862dc926a93c2a45ed8017737.patch";
-      hash = "sha256-qsX5AwyQaGoRsbdszOO7tUF9dR+AkEFi4ebNkBVHNEY=";
-    })
-  ];
 
   meta = with lib; {
     description = "A simple and easy-to-use library to enjoy videogames programming";

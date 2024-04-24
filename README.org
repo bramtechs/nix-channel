@@ -1,0 +1,3 @@
+* Doomhowl Nix Channel
+
+Custom Nix channel that contains patches and edited build flags for some packages.

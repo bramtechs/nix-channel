@@ -1,3 +1,2 @@
 * Doomhowl Nix Channel
-
-Custom Nix channel that contains patches and edited build flags for some packages.
+Custom Nix channel that contains in-house software and customized libraries.

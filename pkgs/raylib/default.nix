@@ -50,6 +50,7 @@ stdenv.mkDerivation (finalAttrs: {
     "-DBUILD_EXAMPLES=OFF"
     "-DBUILD_GAMES=OFF"
     "-DCUSTOMIZE_BUILD=1"
+    "-DUSE_EXTERNAL_GLFW=ON"
     
     # add custom raylib flags
     "-DSUPPORT_FILEFORMAT_SVG=1"

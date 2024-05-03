@@ -30,8 +30,8 @@ stdenv.mkDerivation (finalAttrs: {
   src = fetchFromGitHub {
     owner = "bramtechs";
     repo = "raylib";
-    rev = "aedc6abeb7ac17a388b522c087b8d78834af072c";
-    hash = "sha256-q8J/vs2GTSp7p+Tx0loxwuH5yeKkD/9rjKhUyYk4Lb4=";
+    rev = "22ae3cb32fc0339b3a8df8260f43c75e40ee79b9";
+    hash = "sha256-lzX+f56srrQeIlE1Xc/IaTyB2hgWkrqR2OSCMSdcfjQ=";
   };
 
   nativeBuildInputs = [ cmake ];
@@ -50,15 +50,15 @@ stdenv.mkDerivation (finalAttrs: {
     "-DBUILD_EXAMPLES=OFF"
     "-DBUILD_GAMES=OFF"
     "-DCUSTOMIZE_BUILD=1"
-    "-DUSE_EXTERNAL_GLFW=ON"
-    
+
     # add custom raylib flags
     "-DSUPPORT_FILEFORMAT_SVG=1"
     "-DSUPPORT_FILEFORMAT_JPG=1"
     "-DGLFW_BUILD_WAYLAND=0"
     
   ] ++ lib.optional includeEverything "-DINCLUDE_EVERYTHING=ON"
-  ++ lib.optional sharedLib "-DBUILD_SHARED_LIBS=ON";
+  ++ lib.optional sharedLib "-DBUILD_SHARED_LIBS=ON"
+  ++ lib.optionals stdenv.isDarwin ["-DUSE_EXTERNAL_GLFW=ON"];
 
   passthru.tests = [ raylib-games ];
 

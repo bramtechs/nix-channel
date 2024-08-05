@@ -2,7 +2,6 @@
 , lib
 , fetchFromGitHub
 , cmake
-, fetchpatch
 , mesa
 , libGLU
 , glfw
@@ -11,6 +10,7 @@
 , libXcursor
 , libXrandr
 , libXinerama
+, wayland-scanner
 , alsaSupport ? stdenv.hostPlatform.isLinux
 , alsa-lib
 , pulseSupport ? stdenv.hostPlatform.isLinux
@@ -30,14 +30,14 @@ stdenv.mkDerivation (finalAttrs: {
   src = fetchFromGitHub {
     owner = "bramtechs";
     repo = "raylib";
-    rev = "22ae3cb32fc0339b3a8df8260f43c75e40ee79b9";
-    hash = "sha256-lzX+f56srrQeIlE1Xc/IaTyB2hgWkrqR2OSCMSdcfjQ=";
+    rev = "a0aa9e3b879458291912363838b3997976a4cb3d";
+    hash = "sha256-WgH2G0G9s+omQQ4Q1vcRYzpypRLy1YsnXhIxj1YAPk4=";
   };
 
   nativeBuildInputs = [ cmake ];
 
   buildInputs = [ glfw ]
-    ++ lib.optionals stdenv.isLinux [ mesa libXi libXcursor libXrandr libXinerama ]
+    ++ lib.optionals stdenv.isLinux [ mesa libXi libXcursor libXrandr libXinerama wayland-scanner ]
     ++ lib.optionals stdenv.isDarwin [ Carbon Cocoa ]
     ++ lib.optional alsaSupport alsa-lib
     ++ lib.optional pulseSupport libpulseaudio;
@@ -55,10 +55,10 @@ stdenv.mkDerivation (finalAttrs: {
     "-DSUPPORT_FILEFORMAT_SVG=1"
     "-DSUPPORT_FILEFORMAT_JPG=1"
     "-DGLFW_BUILD_WAYLAND=0"
+    "-DUSE_EXTERNAL_GLFW=ON"
     
   ] ++ lib.optional includeEverything "-DINCLUDE_EVERYTHING=ON"
-  ++ lib.optional sharedLib "-DBUILD_SHARED_LIBS=ON"
-  ++ lib.optionals stdenv.isDarwin ["-DUSE_EXTERNAL_GLFW=ON"];
+  ++ lib.optional sharedLib "-DBUILD_SHARED_LIBS=ON";
 
   passthru.tests = [ raylib-games ];
 

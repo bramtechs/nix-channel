@@ -32,7 +32,7 @@ stdenv.mkDerivation rec {
     "-DSPDLOG_BUILD_STATIC=${if staticBuild then "ON" else "OFF"}"
     "-DSPDLOG_BUILD_EXAMPLE=OFF"
     "-DSPDLOG_BUILD_BENCH=OFF"
-    "-DSPDLOG_BUILD_TESTS=ON"
+    "-DSPDLOG_BUILD_TESTS=OFF"
     "-DSPDLOG_FMT_EXTERNAL=OFF"
   ];
 

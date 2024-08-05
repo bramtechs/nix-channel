@@ -5,7 +5,8 @@ let
       lunasvg = pkgs.callPackage ./pkgs/cpp/lunasvg.nix { };
       inicpp = pkgs.callPackage ./pkgs/cpp/inicpp.nix { };
       inifile-cpp = pkgs.callPackage ./pkgs/cpp/inifile-cpp.nix { };
-
+      spdlog = pkgs.callPackage ./pkgs/cpp/spdlog.nix { };
+      
       touch-scroll-physics-c = pkgs.callPackage (import (builtins.fetchGit {
         url = "https://github.com/bramtechs/touch-scroll-physics-c.git";
       })) {};

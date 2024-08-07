@@ -11,7 +11,8 @@ let
     inifile-cpp = pkgs.callPackage ./pkgs/cpp/inifile-cpp.nix { };
     spdlog = pkgs.callPackage ./pkgs/cpp/spdlog.nix { };
     raylib = pkgs.callPackage ./pkgs/cpp/raylib.nix { includeEverything=true; };
-
+    ada-url = pkgs.callPackage ./pkgs/cpp/ada-url.nix {};
+    
     touch-scroll-physics-c = pkgs.callPackage (import (
       builtins.fetchGit { url = "https://github.com/bramtechs/touch-scroll-physics-c.git"; }
     )) { };

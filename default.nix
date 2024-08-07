@@ -2,8 +2,8 @@
 
 let
   pkgs = import (fetchTarball {
-    url = "https://github.com/NixOS/nixpkgs/archive/nixos-24.05.tar.gz";
-    sha256 = "sha256:0r9a5p748wj5lkpipy6r03d0lqzyv56krcf26l1367xg4nafn95c";
+    url = "https://github.com/NixOS/nixpkgs/archive/63dacb46bf939521bdc93981b4cbb7ecb58427a0.tar.gz";
+    sha256 = "sha256:1lr1h35prqkd1mkmzriwlpvxcb34kmhc9dnr48gkm8hh089hifmx";
   }) { };
   personal = {
     lunasvg = pkgs.callPackage ./pkgs/cpp/lunasvg.nix { };

@@ -12,6 +12,7 @@ let
     spdlog = pkgs.callPackage ./pkgs/cpp/spdlog.nix { };
     raylib = pkgs.callPackage ./pkgs/cpp/raylib.nix { includeEverything=true; };
     ada-url = pkgs.callPackage ./pkgs/cpp/ada-url.nix {};
+    source_location = pkgs.callPackage ./pkgs/cpp/source_location.nix {};
     
     nn = pkgs.callPackage (import (
       pkgs.fetchFromGitHub {

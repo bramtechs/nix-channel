@@ -12,6 +12,10 @@ let
     spdlog = pkgs.callPackage ./pkgs/cpp/spdlog.nix { };
     raylib = pkgs.callPackage ./pkgs/cpp/raylib.nix { includeEverything=true; };
     ada-url = pkgs.callPackage ./pkgs/cpp/ada-url.nix {};
+
+    nn = pkgs.callPackage (import (
+      builtins.fetchGit { url = "https://github.com/bramtechs/nn.git"; }
+    )) { };
     
     touch-scroll-physics-c = pkgs.callPackage (import (
       builtins.fetchGit { url = "https://github.com/bramtechs/touch-scroll-physics-c.git"; }

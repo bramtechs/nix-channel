@@ -12,17 +12,32 @@ let
     spdlog = pkgs.callPackage ./pkgs/cpp/spdlog.nix { };
     raylib = pkgs.callPackage ./pkgs/cpp/raylib.nix { includeEverything=true; };
     ada-url = pkgs.callPackage ./pkgs/cpp/ada-url.nix {};
-
+    
     nn = pkgs.callPackage (import (
-      builtins.fetchGit { url = "https://github.com/bramtechs/nn.git"; }
+      pkgs.fetchFromGitHub {
+        owner = "bramtechs";
+        repo = "nn";
+        rev = "44dcc7964304a159e8a39de29c80e30ff95ae977";
+        sha256 = "sha256-3854x7eC8yANW1o49SexBAzRcNai8r0JOeVUdNstzTU=";
+      }
     )) { };
     
     touch-scroll-physics-c = pkgs.callPackage (import (
-      builtins.fetchGit { url = "https://github.com/bramtechs/touch-scroll-physics-c.git"; }
+      pkgs.fetchFromGitHub {
+        owner = "bramtechs";
+        repo = "touch-scroll-physics-c";
+        rev = "ba6a56ab5537262ed72ec41a4047023f9a42e1a4";
+        sha256 = "sha256-Ns8BH3uQuwoUtY9v2dLA3Ef6OfvqutjWv+QHXJrKddo=";
+      }
     )) { };
 
     smalldeflate-cli = pkgs.callPackage (import (
-      builtins.fetchGit { url = "https://github.com/bramtechs/smalldeflate-cli.git"; }
+      pkgs.fetchFromGitHub {
+        owner = "bramtechs";
+        repo = "smalldeflate-cli";
+        rev = "4d30ddd054ebd86c91915345e1bbeeb3968d0c34";
+        sha256 = "sha256-5VCJ6uui2za6Obl/6VlDhbLr9CzoQwlnP+nJWEfwg5w=";
+      }
     )) { };
 
   };

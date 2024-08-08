@@ -12,13 +12,14 @@ let
     spdlog = pkgs.callPackage ./pkgs/cpp/spdlog.nix { };
     raylib = pkgs.callPackage ./pkgs/cpp/raylib.nix { includeEverything=true; };
     ada-url = pkgs.callPackage ./pkgs/cpp/ada-url.nix {};
+    source_location = pkgs.callPackage ./pkgs/cpp/source_location.nix {};
     
     nn = pkgs.callPackage (import (
       pkgs.fetchFromGitHub {
         owner = "bramtechs";
         repo = "nn";
-        rev = "44dcc7964304a159e8a39de29c80e30ff95ae977";
-        sha256 = "sha256-3854x7eC8yANW1o49SexBAzRcNai8r0JOeVUdNstzTU=";
+        rev = "db06fe08f50867133cf85416a2e17ecd4a484828";
+        sha256 = "sha256-Nubw5i2ehpVOaGqlF8LkXUmuPZWL2jF9Q67rakf2WJQ=";
       }
     )) { };
     

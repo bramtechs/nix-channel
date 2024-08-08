@@ -1,2 +1,0 @@
-* Doomhowl Nix Channel
-Custom Nix channel that contains in-house software and customized libraries.

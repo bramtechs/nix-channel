@@ -13,7 +13,7 @@ let
     raylib = pkgs.callPackage ./pkgs/cpp/raylib.nix { includeEverything=true; };
     ada-url = pkgs.callPackage ./pkgs/cpp/ada-url.nix {};
     source_location = pkgs.callPackage ./pkgs/cpp/source_location.nix {};
-    
+
     nn = pkgs.callPackage (import (
       pkgs.fetchFromGitHub {
         owner = "bramtechs";
@@ -22,7 +22,7 @@ let
         sha256 = "sha256-Nubw5i2ehpVOaGqlF8LkXUmuPZWL2jF9Q67rakf2WJQ=";
       }
     )) { };
-    
+
     touch-scroll-physics-c = pkgs.callPackage (import (
       pkgs.fetchFromGitHub {
         owner = "bramtechs";
@@ -41,6 +41,12 @@ let
       }
     )) { };
 
+    wolfpack = import (pkgs.fetchFromGitHub {
+      owner = "bramtechs";
+      repo = "wolfpack";
+      rev = "8d1a7154d0e9c3f7dc7a74ac0b7ae48cb46a97f8";
+      hash = "sha256-NGjjGSfF4vwP2+GM0vCSOW9QSX05izGgiWlRL+gzuK8=";
+    });
   };
 in
 personal

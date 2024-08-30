@@ -46,7 +46,7 @@ let
       repo = "wolfpack";
       rev = "8d1a7154d0e9c3f7dc7a74ac0b7ae48cb46a97f8";
       hash = "sha256-NGjjGSfF4vwP2+GM0vCSOW9QSX05izGgiWlRL+gzuK8=";
-    });
+    }) { };
   };
 in
 personal
